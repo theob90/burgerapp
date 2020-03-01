@@ -3,7 +3,8 @@ import classes from './Burger.module.css';
 import Burgeringedient from './BurgerIngredient/Burgeringredient';
 
 const burger = (props) => {
-    // kanei to ingredients state apo to Builder se array
+        // to map gia loop t kanw mono se arry,,edw eiani object
+        // kanei to ingredients state apo to Builder se array
     let transformedIngredients = Object.keys(props.ingredients)
         .map(igKey => {
             //ftiaxnei pinaka
@@ -14,8 +15,8 @@ const burger = (props) => {
                 return <Burgeringedient key ={igKey+i} type ={igKey}/>;
             });
         })
-        //kaneis tranform ena array
-        //einai func pou pairnei san args 2 dedomena
+        //kaneis tranform ena array se kati allo
+        //func gia iput previous value (arr) current value (el)
         .reduce((arr, el) => {
             return arr.concat(el)
         }, []);
@@ -35,3 +36,5 @@ const burger = (props) => {
 };
 
 export default burger;
+
+// na dw reduce
